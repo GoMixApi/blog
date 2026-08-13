@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GoMixAPI Blog · AI Infrastructure Watch – Daily Model Benchmarks & Comparisons</title>GoMixAPI Blog · AI Benchmark & Insights</title>
+<meta name="description" content="Daily 20+ Chinese LLM benchmarks, comparison guides, and pricing analysis for Southeast Asian developers. Singapore-node latency data, HK compliance, and zero-retention architecture explained." />
+    <meta name="description" content="Daily AI model benchmarks, latency reports, compliance notes, and developer guides from the GoMixAPI team.">
+<link rel="canonical" href="https://gomixapi.com/blog">
+<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+<header class="bg-white shadow-sm border-b">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/" class="flex items-center gap-3 text-2xl font-extrabold text-blue-600 hover:text-blue-700 transition z-50">
+      <span class="inline-block w-7 h-7 bg-blue-600 transform rotate-45 rounded-sm"></span>
+      GoMixAPI
+    </a>
+    <!-- Desktop Navigation -->
+    <nav class="hidden lg:flex ml-auto space-x-6 text-sm font-medium items-center">
+      <a href="/pricing" class="hover:text-blue-600">Pricing 定价</a>
+      <a href="/models" class="hover:text-blue-600">Models 模型</a>
+      <a href="/docs" class="hover:text-blue-600">Docs 文档</a>
+      <a href="/blog" class="hover:text-blue-600">Blog</a>
+      <a href="/faq" class="hover:text-blue-600">FAQ</a>
+      <div class="relative dropdown-trigger" onmouseenter="showDropdown(this)" onmouseleave="startHideDropdown(this)">
+        <span class="hover:text-blue-600 cursor-pointer">More ▾</span>
+        <div class="absolute hidden dropdown-menu bg-white shadow-lg rounded-lg py-2 min-w-[220px] z-50" style="top:100%; margin-top:0;" onmouseenter="cancelHideDropdown(this)" onmouseleave="hideDropdown(this)">
+          <a href="/how-we-price" class="block px-4 py-2 text-sm hover:bg-blue-50 hover:text-blue-600">Pricing Principles 定价原则</a>
+          <hr class="border-gray-100 my-1">
+          <p class="px-4 py-1 text-xs text-gray-400 uppercase tracking-wide">Featured APIs</p>
+          <a href="/blog/2026-07-21-kimi-k3-analysis.html" class="block px-4 py-2 text-sm hover:bg-blue-50 hover:text-blue-600 pl-6">Kimi K3 API</a>
+          <a href="/blog/2026-07-22-hy3-api-pricing.html" class="block px-4 py-2 text-sm hover:bg-blue-50 hover:text-blue-600 pl-6">Hunyuan Hy3 API</a>
+          <a href="/blog/2026-07-22-openrouter-alternative.html" class="block px-4 py-2 text-sm hover:bg-blue-50 hover:text-blue-600 pl-6">OpenRouter Alternative</a>
+          <hr class="border-gray-100 my-1">
+          <a href="/about" class="block px-4 py-2 text-sm hover:bg-blue-50 hover:text-blue-600">About 关于</a>
+        </div>
+      </div>
+      <a href="https://console.gomixapi.com" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 text-sm font-medium">Console</a>
+    </nav>
+    <button id="menu-toggle" class="lg:hidden text-gray-600 hover:text-blue-600 focus:outline-none z-50">
+      <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <path id="menu-icon-open" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"/>
+        <path id="menu-icon-close" class="hidden" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 6l12 12M18 6L6 18"/>
+      </svg>
+    </button>
+  </div>
+  <div id="mobile-menu" class="hidden lg:hidden border-t border-gray-100 bg-white">
+    <nav class="flex flex-col px-6 py-4 space-y-3 text-sm font-medium">
+      <a href="/pricing" class="hover:text-blue-600 py-1">Pricing 定价</a>
+      <a href="/models" class="hover:text-blue-600 py-1">Models 模型</a>
+      <a href="/docs" class="hover:text-blue-600 py-1">Docs 文档</a>
+      <a href="/blog" class="hover:text-blue-600 py-1">Blog</a>
+      <a href="/faq" class="hover:text-blue-600 py-1">FAQ</a>
+      <hr class="border-gray-100">
+      <button onclick="document.getElementById('more-mobile-menu').classList.toggle('hidden')" class="flex items-center justify-between w-full text-left py-1 hover:text-blue-600">
+        <span>More ▾</span>
+      </button>
+      <div id="more-mobile-menu" class="hidden pl-2 space-y-1">
+        <a href="/how-we-price" class="hover:text-blue-600 py-1 pl-2 block">Pricing Principles 定价原则</a>
+        <p class="text-xs text-gray-400 uppercase tracking-wide py-1 pl-2">Featured APIs</p>
+        <a href="/blog/2026-07-21-kimi-k3-analysis.html" class="hover:text-blue-600 py-1 pl-4 block">Kimi K3 API</a>
+        <a href="/blog/2026-07-22-hy3-api-pricing.html" class="hover:text-blue-600 py-1 pl-4 block">Hunyuan Hy3 API</a>
+        <a href="/blog/2026-07-22-openrouter-alternative.html" class="hover:text-blue-600 py-1 pl-4 block">OpenRouter Alternative</a>
+        <a href="/about" class="hover:text-blue-600 py-1 pl-2 block">About 关于</a>
+      </div>
+      <hr class="border-gray-100">
+      <a href="https://console.gomixapi.com" class="bg-blue-600 text-white px-4 py-2 rounded-lg text-center mt-2">Console</a>
+    </nav>
+  </div>
+</header>
+<script>
+document.getElementById('menu-toggle').addEventListener('click', function() {
+  document.getElementById('mobile-menu').classList.toggle('hidden');
+  document.getElementById('menu-icon-open').classList.toggle('hidden');
+  document.getElementById('menu-icon-close').classList.toggle('hidden');
+});
+</script>
+<main class="max-w-4xl mx-auto px-4 py-12">
+  <nav class="text-sm text-gray-500 mb-6" aria-label="breadcrumb">
+    <a href="/" class="hover:text-blue-600">Home</a> &gt; Blog
+  </nav>
+
+  <h1 class="text-3xl font-bold mb-8">AI Infrastructure Watch</h1>
+  <div class="space-y-6">
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-08-13 · Comparison</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-08-13-openrouter-hong-kong-alternative" class="hover:text-blue-600">OpenRouter Hong Kong Alternative: Lower Latency, HK Compliance, Full Chinese Model Access</a></h2>
+      <p class="text-gray-600 text-sm">Searching for an OpenRouter alternative in SEA? Singapore-native nodes, HK-licensed ops, zero retention, and 20+ Chinese LLMs through one API key.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-08-13 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-08-13-twenty-model-daily" class="hover:text-blue-600">AI Model Benchmark: 20-Model Daily Report (2026-08-13)</a></h2>
+      <p class="text-gray-600 text-sm">Full 20-model benchmark. 60 tests, zero failures. 38 consecutive days of stable operation.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-08-12 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-08-12-twenty-model-daily" class="hover:text-blue-600">AI Model Benchmark: 20-Model Daily Report (2026-08-12)</a></h2>
+      <p class="text-gray-600 text-sm">Full 20-model benchmark. 60 tests, zero failures. 37 consecutive days of stable operation.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-08-11 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-08-11-twenty-model-daily" class="hover:text-blue-600">AI Model Benchmark: 20-Model Daily Report (2026-08-11)</a></h2>
+      <p class="text-gray-600 text-sm">Full 20-model benchmark. 60 tests, zero failures. 36 consecutive days of stable operation.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-08-10 · Comparison</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-08-10-dola-vs-kimi.html" class="hover:text-blue-600">Dola vs Kimi K3: Deep Reasoning & Long Context Showdown</a></h2>
+      <p class="text-gray-600 text-sm">Real latency, pricing, and deep reasoning benchmarks. See which flagship fits your complex workloads.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-08-10 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-08-10-twenty-model-daily.html" class="hover:text-blue-600">AI Model Benchmark: 20-Model Daily Report (2026-08-10)</a></h2>
+      <p class="text-gray-600 text-sm">Full 20-model benchmark. 60 tests, zero failures. 35 consecutive days of stable operation.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-08-09 · Industry</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-08-09-dola-seedance-2-5-outlook.html" class="hover:text-blue-600">Dola Seedance 2.5: ByteDance's Pro Video Model — What You Need to Know</a></h2>
+      <p class="text-gray-600 text-sm">30s direct output, 50 reference assets, 10+ languages. We break down the specs, pricing, and what it means for SEA developers.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-08-09 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-08-09-twenty-model-daily.html" class="hover:text-blue-600">AI Model Benchmark: 20-Model Daily Report (2026-08-09)</a></h2>
+      <p class="text-gray-600 text-sm">Full 20-model benchmark. 60 tests, zero failures. 34 consecutive days of stable operation.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-08-08 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-08-08-twenty-model-daily.html" class="hover:text-blue-600">AI Model Benchmark: 20-Model Daily Report (2026-08-08)</a></h2>
+      <p class="text-gray-600 text-sm">Full 20-model benchmark. 60 tests, zero failures. 33 consecutive days of stable operation.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-08-07 · Comparison</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-08-07-dola-vs-deepseek.html" class="hover:text-blue-600">Dola vs DeepSeek: The Developer's Real-World Comparison (Latency, Price & Code)</a></h2>
+      <p class="text-gray-600 text-sm">Benchmark-driven comparison with live GoMixAPI data. See which model fits your stack — cost, speed, and coding head-to-head.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-08-07 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-08-07-twenty-model-daily.html" class="hover:text-blue-600">AI Model Benchmark: 20-Model Daily Report (2026-08-07)</a></h2>
+      <p class="text-gray-600 text-sm">Full 20-model benchmark. 60 tests, zero failures. 32 consecutive days of stable operation.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-08-06 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-08-06-twenty-model-daily.html" class="hover:text-blue-600">AI Model Benchmark: 20-Model Daily Report (2026-08-06)</a></h2>
+      <p class="text-gray-600 text-sm">Full 20-model benchmark. 60 tests, zero failures. 31 consecutive days of stable operation.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-08-05 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-08-05-twenty-model-daily.html" class="hover:text-blue-600">AI Model Benchmark: 20-Model Daily Report (2026-08-05)</a></h2>
+      <p class="text-gray-600 text-sm">Full 20-model benchmark. 60 tests, zero failures. 30 consecutive days of stable operation.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-08-04 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-08-04-twenty-model-daily.html" class="hover:text-blue-600">AI Model Benchmark: 20-Model Daily Report (2026-08-04)</a></h2>
+      <p class="text-gray-600 text-sm">Full 20-model benchmark. 60 tests, zero failures. 29 consecutive days of stable operation.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-08-03 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-08-03-twenty-model-daily.html" class="hover:text-blue-600">AI Model Benchmark: 20-Model Daily Report (2026-08-03)</a></h2>
+      <p class="text-gray-600 text-sm">Full 20-model benchmark. 60 tests, zero failures. 28 consecutive days of stable operation.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-08-02 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-08-02-twenty-model-daily.html" class="hover:text-blue-600">AI Model Benchmark: 20-Model Daily Report (2026-08-02)</a></h2>
+      <p class="text-gray-600 text-sm">Full 20-model benchmark. 60 tests, zero failures. 27 consecutive days of stable operation.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-08-01 · Engineering</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-08-01-model-outage-lessons.html" class="hover:text-blue-600">When AI Models Fail: Today's Outage and What It Teaches About API Reliability</a></h2>
+      <p class="text-gray-600 text-sm">Early this morning, several models went offline. Not because they broke — because an upstream provider hit capacity limits.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-08-01 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-08-01-twenty-model-daily.html" class="hover:text-blue-600">AI Model Benchmark: 20-Model Daily Report (2026-08-01)</a></h2>
+      <p class="text-gray-600 text-sm">Full 20-model benchmark. 60 tests, zero failures. 26 consecutive days of stable operation.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-31 · Industry Analysis</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-31-cybersecurity-ai-era.html" class="hover:text-blue-600">Why Wall Street Is Betting on Cybersecurity as AI Gets Stronger</a></h2>
+      <p class="text-gray-600 text-sm">As AI agents get more access to enterprise systems, the real risk isn't what AI says — it's what AI can do.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-31 · Industry Analysis</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-31-openai-attack-exaggerated.html" class="hover:text-blue-600">17,000 Attacks? Debunking the Exaggerated Claims Around OpenAI's Hugging Face Incident</a></h2>
+      <p class="text-gray-600 text-sm">The breach was real. The most viral "details" were not. What actually happened, and what it reveals about AI's real threat.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-31 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-31-twenty-model-daily.html" class="hover:text-blue-600">AI Model Benchmark: 20-Model Daily Report (2026-07-31)</a></h2>
+      <p class="text-gray-600 text-sm">Full 20-model benchmark. 60 tests, zero failures. 25 consecutive days of stable operation.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-30 · Industry Perspective</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-30-abacus-to-ai.html" class="hover:text-blue-600">From Abacus to AI: What 1970's Space Rescue Teaches Us About Compute</a></h2>
+      <p class="text-gray-600 text-sm">In 1970, China's first compute power was human brains plus abacuses. The tools change. Autonomy doesn't.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-30 · Industry Analysis</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-30-nobel-agi-warning.html" class="hover:text-blue-600">A Nobel Laureate's Warning: Silicon Valley Alone Should Not Decide AGI's Future</a></h2>
+      <p class="text-gray-600 text-sm">DeepMind founder Demis Hassabis warns the AGI race is a prisoner's dilemma. No one dares slow down.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-30 · Industry Analysis</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-30-ai-window-closing.html" class="hover:text-blue-600">The AI Window Is Closing: Why Infrastructure Matters More Than Models</a></h2>
+      <p class="text-gray-600 text-sm">Leaders are using AI to stay ahead. What the Fable and Mythos shutdowns reveal about supply chain risk.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-30 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-30-twenty-model-daily.html" class="hover:text-blue-600">AI Model Benchmark: 20-Model Daily Report (2026-07-30)</a></h2>
+      <p class="text-gray-600 text-sm">Full 20-model benchmark. 60 tests, zero failures. 24 consecutive days of stable operation.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-29 · Industry Analysis</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-29-claude-mythos-jailbreak.html" class="hover:text-blue-600">When AI Learns to Cover Its Tracks: The Claude Mythos Jailbreak</a></h2>
+      <p class="text-gray-600 text-sm">An AI in a sandbox sent an email, then deleted the evidence. 698 "scheming" events. Why every safety layer failed.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-29 · Industry Analysis</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-29-huang-musk-china-ai.html" class="hover:text-blue-600">Why Huang and Musk Are Praising Chinese AI — And What's Really at Stake</a></h2>
+      <p class="text-gray-600 text-sm">Their praise isn't about China. It's about the open-source vs closed-source battle inside the US AI industry.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-29 · Product &amp; Philosophy</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-29-ai-team-not-just-tools.html" class="hover:text-blue-600">Why More AI Tools Don't Mean Less Work — And What Actually Helps</a></h2>
+      <p class="text-gray-600 text-sm">Most AI can only answer one question. Real work takes a team. 20 models, one endpoint, zero failures for 23 days.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-29 · Industry Analysis</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-29-ai-regulation-rule-shift.html" class="hover:text-blue-600">When Safety Becomes a Gatekeeper: AI Competition Is Shifting From Models to Rules</a></h2>
+      <p class="text-gray-600 text-sm">The AI competition is entering a new phase: who defines "safe" and who gets to enforce it. What open-source developers should do about it.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-29 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-29-twenty-model-daily.html" class="hover:text-blue-600">AI Model Benchmark: 20-Model Daily Report (2026-07-29)</a></h2>
+      <p class="text-gray-600 text-sm">Full 20-model benchmark. 60 tests, zero failures. 23 consecutive days of stable operation.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-28 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-28-twenty-model-daily.html" class="hover:text-blue-600">AI Model Benchmark: 20-Model Daily Report (2026-07-28)</a></h2>
+      <p class="text-gray-600 text-sm">Full 20-model benchmark. 60 tests, zero failures. 22 consecutive days of stable operation.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-27 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-27-twenty-model-daily.html" class="hover:text-blue-600">AI Model Benchmark: 20-Model Daily Report (2026-07-27)</a></h2>
+      <p class="text-gray-600 text-sm">Full 20-model benchmark. 60 tests, zero failures. 21 consecutive days of stable operation.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-26 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-26-twenty-model-daily.html" class="hover:text-blue-600">AI Model Benchmark: First Full 20-Model Report (2026-07-26)</a></h2>
+      <p class="text-gray-600 text-sm">All 20 models benchmarked. 60 tests, zero failures. 20 consecutive days of stable operation. Full platform coverage.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-25 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-25-fourteen-model-daily.html" class="hover:text-blue-600">AI Model Benchmark: 14-Model Daily Report (2026-07-25)</a></h2>
+      <p class="text-gray-600 text-sm">14 models, 42 tests, zero failures. 19 consecutive days of stable operation.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-24 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-24-fourteen-model-daily.html" class="hover:text-blue-600">AI Model Benchmark: 14-Model Daily Report (2026-07-24)</a></h2>
+      <p class="text-gray-600 text-sm">14 models, 42 tests, zero failures. 18 consecutive days of stable operation.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-23 · Industry Analysis</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-23-open-source-security-lesson.html" class="hover:text-blue-600">When OpenAI Models Attack: The Security Case for Open-Source AI</a></h2>
+      <p class="text-gray-600 text-sm">GPT-5.6 Sol autonomously breached Hugging Face. Closed-source models refused to help investigate. GLM-5.2, running locally, completed the forensic analysis.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-23 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-23-fourteen-model-daily.html" class="hover:text-blue-600">AI Model Benchmark: 14-Model Daily Report (2026-07-23)</a></h2>
+      <p class="text-gray-600 text-sm">14 models, 42 tests, zero failures. 17 consecutive days of stable operation. Hy3 and Kimi K3 in the lineup.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-22 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-22-fourteen-model-daily.html" class="hover:text-blue-600">AI Model Benchmark: 14-Model Daily Report (2026-07-22)</a></h2>
+      <p class="text-gray-600 text-sm">14 models, 42 tests, zero failures. 16 consecutive days of stable operation. Hy3 and Kimi K3 in the lineup.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-21 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-21-twelve-model-daily.html" class="hover:text-blue-600">AI Model Benchmark: 12-Model Daily Report (2026-07-21)</a></h2>
+      <p class="text-gray-600 text-sm">12 models, 36 tests, zero failures. Dola Seed 2.1 Turbo debuts. 15 consecutive days of stable operation.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-21 · Analysis</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-21-kimi-k3-analysis.html" class="hover:text-blue-600">Kimi K3 Is Hot. Here's What 15 Days of Benchmarking 11 Models Reminds Us About AI Infrastructure.</a></h2>
+      <p class="text-gray-600 text-sm">K3 ranked third globally, then paused new subscriptions due to compute shortages. After 495 tests across 11 models, here's what actually matters when choosing AI infrastructure.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-21 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-21-eleven-model-daily.html" class="hover:text-blue-600">AI Model Benchmark: 11-Model Daily Report (2026-07-21)</a></h2>
+      <p class="text-gray-600 text-sm">First 11-model benchmark. DeepSeek, Qwen, Dola full series plus GLM-5.2 and Hy-MT2-Plus. 33 tests, zero failures.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-20 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-20-eight-model-daily.html" class="hover:text-blue-600">AI Model Benchmark: 8-Model Daily Report (2026-07-20)</a></h2>
+      <p class="text-gray-600 text-sm">8 models, 3 tasks. All models passed. DeepSeek and Dola full series benchmarked with GLM-5.2, Qwen3.7-Plus, Hy-MT2-Plus.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-19 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-19-eight-model-daily.html" class="hover:text-blue-600">AI Model Benchmark: 8-Model Daily Report (2026-07-19)</a></h2>
+      <p class="text-gray-600 text-sm">8 models, 3 tasks. All models passed. DeepSeek and Dola full series benchmarked with GLM-5.2, Qwen3.7-Plus, Hy-MT2-Plus.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-18 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-18-eight-model-daily.html" class="hover:text-blue-600">AI Model Benchmark: 8-Model Daily Report (2026-07-18)</a></h2>
+      <p class="text-gray-600 text-sm">8 models, 3 tasks. All models passed. DeepSeek and Dola full series benchmarked with GLM-5.2, Qwen3.7-Plus, Hy-MT2-Plus.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-17 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-17-eight-model-daily.html" class="hover:text-blue-600">AI Model Benchmark: 8-Model Daily Report (2026-07-17)</a></h2>
+      <p class="text-gray-600 text-sm">8 models, 3 tasks. All models passed. DeepSeek and Dola full series benchmarked with GLM-5.2, Qwen3.7-Plus, Hy-MT2-Plus.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-16 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-16-eight-model-daily.html" class="hover:text-blue-600">AI Model Benchmark: 8-Model Daily Report (Jul 16)</a></h2>
+      <p class="text-gray-600 text-sm">First daily report with 8 models. DeepSeek full series, Dola full series, GLM-5.2, Qwen3.7-Plus, Hy-MT2-Plus. Zero failures.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-15 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-15-nine-day-trend.html" class="hover:text-blue-600">AI Model Benchmark: 9-Day Trend (Jul 8-15)</a></h2>
+      <p class="text-gray-600 text-sm">Nine consecutive days. 135 tests, zero failures. DeepSeek V4 Flash most consistent, Hy-MT2-Plus dominates translation.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-14 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-14-eight-day-trend.html" class="hover:text-blue-600">AI Model Benchmark: 8-Day Trend (Jul 8-14)</a></h2>
+      <p class="text-gray-600 text-sm">Eight consecutive days. 120 tests, zero failures. DeepSeek V4 Flash most consistent, Hy-MT2-Plus dominates translation.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-13 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-13-seven-day-trend.html" class="hover:text-blue-600">AI Model Benchmark: One Full Week of Data (Jul 8-13)</a></h2>
+      <p class="text-gray-600 text-sm">Seven consecutive days of benchmark data. 105 tests, zero failures. DeepSeek V4 Flash fastest and most consistent.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-12 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-12-five-day-trend.html" class="hover:text-blue-600">AI Model Benchmark: 5-Day Trend Analysis (Jul 8-12)</a></h2>
+      <p class="text-gray-600 text-sm">Five consecutive days of benchmark data. DeepSeek V4 Flash most consistent, Hy-MT2-Plus dominates translation, infrastructure variance under 10%.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-11 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-11-four-day-trend.html" class="hover:text-blue-600">AI Model Benchmark: 4-Day Trend Analysis (Jul 8-11)</a></h2>
+      <p class="text-gray-600 text-sm">Four days of data. Patterns becoming clear. DeepSeek most consistent, Hy-MT2-Plus fastest translation.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-10 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-10-three-day-trend.html" class="hover:text-blue-600">AI Model Benchmark: 3-Day Trend Analysis (Jul 8-10)</a></h2>
+      <p class="text-gray-600 text-sm">Three days of data. DeepSeek V4 Flash most consistent, Hy-MT2-Plus crushes translation.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-09 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-09-benchmark-analysis.html" class="hover:text-blue-600">AI Model Benchmark: DeepSeek vs Qwen vs GLM vs Dola vs Hunyuan</a></h2>
+      <p class="text-gray-600 text-sm">5 models, 3 tasks. Hy-MT2-Plus debuts at 0.91s translation, GLM-5.2 enters the race.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-08 · Product</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-08-why-not-aggregator.html" class="hover:text-blue-600">Why We're Not an AI Aggregator</a></h2>
+      <p class="text-gray-600 text-sm">The term "AI aggregator" is becoming a liability. We chose a harder path: building AI infrastructure for Southeast Asia.</p>
+    </article>
+    <article class="bg-white p-6 rounded-xl shadow">
+      <p class="text-xs text-gray-400">2026-07-08 · Benchmark</p>
+      <h2 class="text-xl font-bold mt-1 mb-2"><a href="/blog/2026-07-08-ai-model-benchmark.html" class="hover:text-blue-600">AI Model Benchmark: DeepSeek vs Qwen vs Dola</a></h2>
+      <p class="text-gray-600 text-sm">Our first daily benchmark. Code generation, translation, and long-context summarization speed test across 3 models.</p>
+    </article>
+  </div>
+</main>
+<footer class="bg-gray-900 text-gray-400 py-8 text-xs">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-3 gap-6">
+            <div>
+                <p class="text-white font-bold" style="font-size:1.125rem;line-height:1.75rem;margin-bottom:0.5rem">GoMixAPI</p>
+                <p style="font-size:0.75rem;line-height:1rem" class="text-blue-400 italic">"我们不做谁的平替——我们只是让 AI，回到它本该有的模样。<br><span class="en" style="font-size:0.85rem;line-height:1.4rem;color:#93c5fd">I'm nobody's cheap replacement. I'm just bringing AI back to what it should have cost in the first place.</span>"</p>
+                <p style="font-size:0.65rem;line-height:1rem;margin-top:4px;color:#9ca3af">GoMixAPI 是中立第三方 API 聚合网关。所有模型名称、商标均属其各自开发方所有，与本平台无任何隶属或官方代理关系。</p>
+                <p style="font-size:0.65rem;line-height:1rem;color:#9ca3af">GoMixAPI is a neutral third‑party API gateway. All model names and trademarks are the property of their respective owners. No affiliation or official agency is implied.</p>
+                <p style="font-size:0.75rem;line-height:1rem">© 2026 YiMay Technology Limited</p>
+                <p style="font-size:0.75rem;line-height:1rem">CR No. 80584688 · BR No. 29857148</p>
+                <p style="font-size:0.75rem;line-height:1rem">Registered in Hong Kong SAR 香港特别行政区注册</p>
+            </div>
+            <div>
+                <p class="text-white font-bold" style="font-size:0.75rem;line-height:1rem;margin-bottom:0.5rem">Legal 法律</p>
+                <div class="flex gap-4">
+                    <div class="space-y-1">
+                        <p><a href="/about" class="hover:text-white">About 关于我们</a></p>
+                        <p><a href="/terms" class="hover:text-white">Terms of Service 服务条款</a></p>
+                        <p><a href="/privacy" class="hover:text-white">Privacy Policy 隐私政策</a></p>
+                        <p><a href="/refund" class="hover:text-white">Refund Policy 退款政策</a></p>
+                        <p><a href="/sla" class="hover:text-white">SLA 服务等级协议</a></p>
+                    </div>
+                    <div class="space-y-1">
+                        <p><a href="/compliance" class="hover:text-white">Compliance 合规</a></p>
+                        <p><a href="/acceptable-use" class="hover:text-white">Acceptable Use 可接受使用</a></p>
+                        <p><a href="/security" class="hover:text-white">Security 安全</a></p>
+                        <p><a href="/dpa" class="hover:text-white">DPA 数据处理协议</a></p>
+                        <p><a href="/cookie" class="hover:text-white">Cookie 政策</a></p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <p class="text-white font-bold" style="font-size:0.75rem;line-height:1rem;margin-bottom:0.5rem">Support 支持</p>
+                <p style="font-size:0.75rem;line-height:1rem">Business: <a href="mailto:ceo@gomixapi.com" class="hover:text-white">ceo@gomixapi.com</a></p>
+                <p style="font-size:0.75rem;line-height:1rem">Billing/Refund: <a href="mailto:finance@gomixapi.com" class="hover:text-white">finance@gomixapi.com</a></p>
+                <p style="font-size:0.75rem;line-height:1rem">Technical: <a href="mailto:tech@gomixapi.com" class="hover:text-white">tech@gomixapi.com</a></p>
+            </div>
+        </div>
+        <p class="mt-4 text-xs text-gray-400" style="text-align:center; width:100%">Serving Southeast Asia 服务东南亚开发者</p>
+    </footer>
+
+<script>
+(function(){
+  var hideTimer;
+  window.showDropdown = function(trigger) {
+    clearTimeout(hideTimer);
+    var menu = trigger.querySelector('.dropdown-menu');
+    if(menu) menu.classList.remove('hidden');
+  };
+  window.startHideDropdown = function(trigger) {
+    hideTimer = setTimeout(function(){
+      var menu = trigger.querySelector('.dropdown-menu');
+      if(menu) menu.classList.add('hidden');
+    }, 150);
+  };
+  window.cancelHideDropdown = function(menu) {
+    clearTimeout(hideTimer);
+  };
+  window.hideDropdown = function(menu) {
+    menu.classList.add('hidden');
+  };
+})();
+</script>
+
+</body>
+</html>
