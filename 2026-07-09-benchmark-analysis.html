@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Model Benchmark: DeepSeek vs Qwen vs GLM vs Dola vs Hunyuan (2026-07-09) – GoMixAPI</title>
+    <meta name="description" content="Daily benchmark results across 5 models and 3 tasks. DeepSeek V4 Flash keeps the speed crown, GLM-5.2 joins the race, Hy-MT2-Plus dominates translation.">
+    <link rel="canonical" href="https://gomixapi.com/blog/2026-07-09-benchmark-analysis.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-white shadow-sm border-b">
+        <div class="max-w-4xl mx-auto px-6 py-5 flex items-center justify-between">
+            <a href="/" class="text-2xl font-extrabold text-blue-600">GoMixAPI</a>
+            <a href="/pricing" class="text-sm text-blue-600 hover:underline">← Back to Pricing</a>
+        </div>
+    </header>
+    <main class="max-w-4xl mx-auto px-4 py-12">
+  <nav class="text-sm text-gray-500 mb-6" aria-label="breadcrumb">
+    <a href="/" class="hover:text-blue-600">Home</a> &gt; Blog > AI Model Benchmark: DeepSeek vs Qwen vs GLM vs Dola vs Hunyuan (2026-07-09)
+  </nav>
+
+        <article>
+            <h1 class="text-3xl font-bold mb-4">AI Model Benchmark: DeepSeek vs Qwen vs GLM vs Dola vs Hunyuan (2026-07-09)</h1>
+            <p class="text-gray-500 mb-8">
+                Published: 2026-07-09 · Category: Benchmark · 
+                <a href="https://github.com/GoMixApi/benchmark" class="text-blue-600 hover:underline">Raw Data on GitHub</a>
+            </p>
+            <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
+                <p class="text-blue-700"><strong>📊 Daily Benchmark Summary</strong></p>
+                <p class="text-blue-600 text-sm mt-1">Today we expanded from 3 to 5 models. Same 3 tasks. All data public.</p>
+            </div>
+            <h2 class="text-2xl font-bold mb-4">⏱️ Speed Comparison (Lower = Faster)</h2>
+            <div class="bg-white rounded-xl shadow-md overflow-x-auto mb-8">
+                <table class="w-full text-sm">
+                    <thead><tr class="bg-gray-100 text-left"><th class="p-3">Model</th><th class="p-3">💻 Code Generation</th><th class="p-3">🌐 Translation</th><th class="p-3">📄 Long Context Summary</th></tr></thead>
+                    <tbody>
+                        <tr class="border-t"><td class="p-3 font-semibold">Hy-MT2-Plus</td><td class="p-3">2.19s</td><td class="p-3 text-green-600 font-bold">✅ 0.91s</td><td class="p-3">1.46s</td></tr>
+                        <tr class="border-t bg-gray-50"><td class="p-3 font-semibold">DeepSeek V4 Flash</td><td class="p-3 text-green-600 font-bold">✅ 3.73s</td><td class="p-3">2.07s</td><td class="p-3 text-green-600 font-bold">✅ 1.94s</td></tr>
+                        <tr class="border-t"><td class="p-3 font-semibold">GLM-5.2</td><td class="p-3">4.98s</td><td class="p-3">4.04s</td><td class="p-3">2.32s</td></tr>
+                        <tr class="border-t bg-gray-50"><td class="p-3 font-semibold">Dola Seed-2.0-Lite</td><td class="p-3">17.83s</td><td class="p-3">9.25s</td><td class="p-3">5.91s</td></tr>
+                        <tr class="border-t"><td class="p-3 font-semibold">Qwen3.7-Plus</td><td class="p-3">24.87s</td><td class="p-3">7.76s</td><td class="p-3">27.28s</td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <h2 class="text-2xl font-bold mb-4">🔍 Key Takeaways</h2>
+            <div class="space-y-4 mb-8">
+                <div class="bg-white p-6 rounded-xl shadow">
+                    <h3 class="font-bold text-lg mb-2">🏆 Hy-MT2-Plus — Translation King</h3>
+                    <p class="text-gray-600">0.91 seconds for English→Chinese translation. That's faster than every other model by a factor of 2-10x. If your application is translation-heavy, this is the model to use. <strong>$0.15/$0.90 per 1M tokens</strong>.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow">
+                    <h3 class="font-bold text-lg mb-2">⚡ GLM-5.2 — Strong New Contender</h3>
+                    <p class="text-gray-600">New to our benchmark today. Code gen in 4.98s, summary in 2.32s — second only to DeepSeek V4 Flash. For a flagship model with 1M context window, these are impressive numbers. <strong>$1.55/$8.60 per 1M tokens</strong>.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow">
+                    <h3 class="font-bold text-lg mb-2">🔄 Qwen3.7-Plus — Slowest But Most Detailed</h3>
+                    <p class="text-gray-600">Consistently the slowest across all tasks, but produced the longest and most detailed outputs. Code gen output was 743 chars vs DeepSeek's 400. If quality matters more than speed, Qwen delivers. <strong>$0.70/$3.90 per 1M tokens</strong>.</p>
+                </div>
+            </div>
+            <div class="bg-green-50 border border-green-200 rounded-xl p-6 mb-8 text-center">
+                <p class="text-green-700 font-bold text-lg mb-2">🚀 All 5 models available through one API endpoint</p>
+                <p class="text-green-600 mb-4">Change one line of <code>base_url</code> — switch between all 17 models instantly.</p>
+                <a href="https://console.gomixapi.com" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700">✨ Get 5,000 Free Tokens</a>
+                <p class="text-xs text-gray-500 mt-2">No credit card required</p>
+            </div>
+            <div class="bg-gray-50 border border-gray-200 rounded-xl p-5 mb-8 text-center">
+                <p class="text-sm text-gray-600 mb-3"><strong>📊 More from GoMixAPI:</strong></p>
+                <div class="flex flex-wrap justify-center gap-3 text-sm">
+                    <a href="/blog/2026-08-07-dola-vs-deepseek.html" class="text-blue-600 hover:underline">Dola vs DeepSeek 对比</a>
+                    <span class="text-gray-300">|</span>
+                    <a href="/pricing" class="text-blue-600 hover:underline">20 模型定价</a>
+                    <span class="text-gray-300">|</span>
+                    <a href="/models" class="text-blue-600 hover:underline">模型列表</a>
+                </div>
+            </div>
+
+            <div class="text-sm text-gray-500 border-t pt-6">
+                <p><strong>Methodology:</strong> All tests run through GoMixAPI production API. Temperature=0.0. Raw data on <a href="https://github.com/GoMixApi/benchmark" class="text-blue-600 hover:underline">GitHub</a>.</p>
+                <p class="mt-2"><strong>Disclosure:</strong> GoMixAPI is a commercial API gateway providing access to these models. This benchmark reflects real-world performance through our infrastructure.</p>
+            </div>
+        </article>
+    </main>
+</body>
+</html>

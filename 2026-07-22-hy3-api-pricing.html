@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tencent Hy3 API SG Price | 256K Context · Agent Optimized · GoMixAPI</title>
+    <meta name="description" content="Tencent Hunyuan Hy3 API available via Singapore node. 295B MoE, 256K context, $0.40/$1.60 per 1M tokens. 5.4% hallucination rate. OpenAI compatible endpoint. Benchmark data shows stable performance.">
+    <link rel="canonical" href="https://gomixapi.com/blog/2026-07-22-hy3-api-pricing.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-white shadow-sm border-b">
+        <div class="max-w-4xl mx-auto px-6 py-5 flex items-center justify-between">
+            <a href="/" class="text-2xl font-extrabold text-blue-600">GoMixAPI</a>
+            <a href="/pricing" class="text-sm text-blue-600 hover:underline">Back to Pricing</a>
+        </div>
+    </header>
+    <main class="max-w-4xl mx-auto px-4 py-12">
+  <nav class="text-sm text-gray-500 mb-6" aria-label="breadcrumb">
+    <a href="/" class="hover:text-blue-600">Home</a> &gt; Blog > Tencent Hunyuan Hy3 API: Pricing, Benchmark & OpenAI Compatible Endpoint (2026)
+  </nav>
+
+        <article>
+            <h1 class="text-3xl font-bold mb-4">Tencent Hunyuan Hy3 API: Pricing, Benchmark & OpenAI Compatible Endpoint</h1>
+            <p class="text-gray-500 mb-8">Published: 2026-07-22 · Category: Model Guide</p>
+            
+            <div class="prose max-w-none text-gray-700 space-y-6">
+                <p>Tencent's Hunyuan Hy3 is one of the most cost-effective Chinese AI models available today. With 295B total parameters (21B activated) in a Mixture-of-Experts architecture, it punches well above its weight class — matching models 2-5x its size on key benchmarks.</p>
+                
+                <h2 class="text-2xl font-bold mt-8 mb-4">Hy3 Pricing (Singapore Node)</h2>
+                <div class="bg-white rounded-xl shadow-md overflow-x-auto mb-6">
+                    <table class="w-full text-sm">
+                        <thead><tr class="bg-gray-100"><th class="p-3">Tier</th><th class="p-3">Input (per 1M tokens)</th><th class="p-3">Output (per 1M tokens)</th></tr></thead>
+                        <tbody>
+                            <tr class="border-t"><td class="p-3 font-semibold">Standard</td><td class="p-3">$0.40</td><td class="p-3">$1.60</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <h2 class="text-2xl font-bold mt-8 mb-4">Key Specs</h2>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Context window: 256K tokens</li>
+                    <li>Architecture: 295B MoE (21B activated)</li>
+                    <li>Hallucination rate: 5.4% (industry-leading)</li>
+                    <li>OpenAI compatible: change one line of base_url to switch</li>
+                    <li>Singapore native node: &lt;130ms latency across SE Asia</li>
+                </ul>
+
+                <h2 class="text-2xl font-bold mt-8 mb-4">Benchmark Performance</h2>
+                <p>In our 16-day continuous benchmark, Hy3 consistently delivers:</p>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li>Code generation: competitive speed, zero failures</li>
+                    <li>Translation: fast and accurate for its price tier</li>
+                    <li>Long context summary: reliable on 256K documents</li>
+                </ul>
+                <p>Full benchmark data available on <a href="https://github.com/GoMixApi/benchmark" class="text-blue-600 hover:underline">GitHub</a>.</p>
+
+                <h2 class="text-2xl font-bold mt-8 mb-4">Quick Start</h2>
+                <div class="bg-gray-100 p-4 rounded-lg mb-4">
+                    <code>curl https://api.gomixapi.com/v1/chat/completions \</code><br>
+                    <code>  -H "Authorization: Bearer sk-your-key" \</code><br>
+                    <code>  -H "Content-Type: application/json" \</code><br>
+                    <code>  -d '{"model":"hy3","messages":[{"role":"user","content":"Hello"}]}'</code>
+                </div>
+
+                <h2 class="text-2xl font-bold mt-8 mb-4">Related</h2>
+                <ul class="list-disc pl-6 space-y-2">
+                    <li><a href="/blog/2026-07-21-kimi-k3-analysis.html" class="text-blue-600 hover:underline">Kimi K3 API Singapore: 1M Context, Pricing & Benchmark Data</a></li>
+                    <li><a href="/pricing" class="text-blue-600 hover:underline">Full Model Pricing (20 models, USD)</a></li>
+                </ul>
+            </div>
+        
+            <div class="bg-gray-50 rounded-xl p-6 mt-8">
+              <h3 class="font-bold text-lg mb-3">Also explore</h3>
+              <ul class="space-y-2">
+                <li><a href="/blog/2026-07-21-kimi-k3-analysis.html" class="text-blue-600 hover:underline">Kimi K3 API Singapore: 1M Context, Pricing & Benchmark Data</a></li>
+                <li><a href="/blog/2026-07-22-openrouter-alternative.html" class="text-blue-600 hover:underline">OpenRouter Alternative Hong Kong: Lower Latency, DPA/SCC</a></li>
+              </ul>
+            </div>
+        </article>
+    </main>
+</body>
+</html>

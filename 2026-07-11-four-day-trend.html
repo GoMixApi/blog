@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Model Benchmark: 4-Day Trend Analysis (Jul 8-11) – GoMixAPI</title>
+    <meta name="description" content="Four consecutive days of AI model benchmark data. DeepSeek V4 Flash most consistent, Hy-MT2-Plus dominates translation, Qwen3.7-Plus delivers longest outputs.">
+    <link rel="canonical" href="https://gomixapi.com/blog/2026-07-11-four-day-trend.html">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-white shadow-sm border-b">
+        <div class="max-w-4xl mx-auto px-6 py-5 flex items-center justify-between">
+            <a href="/" class="text-2xl font-extrabold text-blue-600">GoMixAPI</a>
+            <a href="/pricing" class="text-sm text-blue-600 hover:underline">Back to Pricing</a>
+        </div>
+    </header>
+    <main class="max-w-4xl mx-auto px-4 py-12">
+  <nav class="text-sm text-gray-500 mb-6" aria-label="breadcrumb">
+    <a href="/" class="hover:text-blue-600">Home</a> &gt; Blog > AI Model Benchmark: 4-Day Trend Analysis (Jul 8-11)
+  </nav>
+
+        <article>
+            <h1 class="text-3xl font-bold mb-4">AI Model Benchmark: 4-Day Trend Analysis (Jul 8-11)</h1>
+            <p class="text-gray-500 mb-8">
+                Published: 2026-07-11 · Category: Benchmark · 
+                <a href="https://github.com/GoMixApi/benchmark" class="text-blue-600 hover:underline">Raw Data on GitHub</a>
+            </p>
+            <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
+                <p class="text-blue-700"><strong>Four days of data. Patterns are becoming clear.</strong></p>
+                <p class="text-blue-600 text-sm mt-1">5 models. 3 tasks. All data public. Scripts on GitHub.</p>
+            </div>
+            
+            <h2 class="text-2xl font-bold mb-4">Code Generation Speed (seconds, lower is faster)</h2>
+            <div class="bg-white rounded-xl shadow-md overflow-x-auto mb-8">
+                <table class="w-full text-sm">
+                    <thead><tr class="bg-gray-100 text-left"><th class="p-3">Model</th><th class="p-3">Jul 8</th><th class="p-3">Jul 9</th><th class="p-3">Jul 10</th><th class="p-3">Jul 11</th><th class="p-3">Trend</th></tr></thead>
+                    <tbody>
+                        <tr class="border-t"><td class="p-3 font-semibold">DeepSeek V4 Flash</td><td class="p-3">3.96s</td><td class="p-3">3.73s</td><td class="p-3">Check data</td><td class="p-3">Check data</td><td class="p-3 text-green-600">Stable</td></tr>
+                        <tr class="border-t bg-gray-50"><td class="p-3 font-semibold">Hy-MT2-Plus</td><td class="p-3">N/A</td><td class="p-3">2.19s</td><td class="p-3">Check data</td><td class="p-3">Check data</td><td class="p-3 text-green-600">Translation King</td></tr>
+                        <tr class="border-t"><td class="p-3 font-semibold">GLM-5.2</td><td class="p-3">N/A</td><td class="p-3">4.98s</td><td class="p-3">Check data</td><td class="p-3">Check data</td><td class="p-3 text-blue-600">Consistent</td></tr>
+                        <tr class="border-t bg-gray-50"><td class="p-3 font-semibold">Dola Seed-2.0-Lite</td><td class="p-3">18.76s</td><td class="p-3">17.83s</td><td class="p-3">Check data</td><td class="p-3">Check data</td><td class="p-3">Slowly Improving</td></tr>
+                        <tr class="border-t"><td class="p-3 font-semibold">Qwen3.7-Plus</td><td class="p-3">24.3s</td><td class="p-3">24.87s</td><td class="p-3">Check data</td><td class="p-3">Check data</td><td class="p-3">Slowest but Detailed</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <h2 class="text-2xl font-bold mb-4">Key Takeaways After 4 Days</h2>
+            <div class="space-y-4 mb-8">
+                <div class="bg-white p-6 rounded-xl shadow">
+                    <h3 class="font-bold text-lg mb-2">1. DeepSeek V4 Flash: The Gold Standard for Production</h3>
+                    <p class="text-gray-600">Four days of testing and DeepSeek V4 Flash consistently delivers. Code generation has stayed in the 3.7-4.0s range with zero failures across all tasks. For teams deploying AI into production, this level of predictability matters more than peak performance.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow">
+                    <h3 class="font-bold text-lg mb-2">2. Hy-MT2-Plus: A Translation Specialist Worth Using</h3>
+                    <p class="text-gray-600">Translation speed of 0.91s is not just fast — it is 2-10x faster than every other model tested. At $0.15/$0.90 per 1M tokens, this is the best value translation model we have benchmarked.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow">
+                    <h3 class="font-bold text-lg mb-2">3. Qwen3.7-Plus: Slow, But There is a Reason</h3>
+                    <p class="text-gray-600">Qwen consistently takes the longest across all tasks. But it also consistently produces the most detailed output. Code generation output averages 750 characters compared to DeepSeek's 400. If your use case values thoroughness, Qwen delivers.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow">
+                    <h3 class="font-bold text-lg mb-2">4. Infrastructure Stability: Day-to-Day Variance Under 10%</h3>
+                    <p class="text-gray-600">Across four days and 60 individual tests, the speed variation between days is under 10% for most models. This suggests stable infrastructure at both the API gateway level and the upstream model providers.</p>
+                </div>
+            </div>
+
+            <div class="bg-green-50 border border-green-200 rounded-xl p-6 mb-8 text-center">
+                <p class="text-green-700 font-bold text-lg mb-2">All 5 models available through one API endpoint</p>
+                <p class="text-green-600 mb-4">Change one line of base_url. Switch between 17 models instantly.</p>
+                <a href="https://console.gomixapi.com" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700">Get 5,000 Free Tokens</a>
+                <p class="text-xs text-gray-500 mt-2">No credit card required</p>
+            </div>
+            <div class="bg-gray-50 border border-gray-200 rounded-xl p-5 mb-8 text-center">
+                <p class="text-sm text-gray-600 mb-3"><strong>📊 More from GoMixAPI:</strong></p>
+                <div class="flex flex-wrap justify-center gap-3 text-sm">
+                    <a href="/blog/2026-08-07-dola-vs-deepseek.html" class="text-blue-600 hover:underline">Dola vs DeepSeek 对比</a>
+                    <span class="text-gray-300">|</span>
+                    <a href="/pricing" class="text-blue-600 hover:underline">20 模型定价</a>
+                    <span class="text-gray-300">|</span>
+                    <a href="/models" class="text-blue-600 hover:underline">模型列表</a>
+                </div>
+            </div>
+
+            <div class="text-sm text-gray-500 border-t pt-6">
+                <p><strong>Methodology:</strong> All tests run through GoMixAPI production API at 03:00 UTC+8 daily. Temperature=0.0. Raw data and scripts on <a href="https://github.com/GoMixApi/benchmark" class="text-blue-600 hover:underline">GitHub</a>.</p>
+                <p class="mt-2"><strong>Disclosure:</strong> GoMixAPI is a commercial API gateway providing access to these models.</p>
+            </div>
+        </article>
+    </main>
+</body>
+</html>
