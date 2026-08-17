@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Run DeepSeek Harness with GoMixAPI: Step-by-Step Guide (2026)</title>
+    <meta name="description" content="Complete step-by-step guide to connect DeepSeek Harness to GoMixAPI. Install Node 22, import GoMixAPI profile, switch between 20 Chinese LLMs, and run your first Agent task.">
+    <link rel="canonical" href="https://gomixapi.com/blog/2026-08-17-how-to-run-dsh-with-gomixapi">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-white shadow-sm border-b">
+        <div class="max-w-4xl mx-auto px-6 py-5 flex items-center justify-between">
+            <a href="/" class="text-2xl font-extrabold text-blue-600">GoMixAPI</a>
+            <a href="/pricing" class="text-sm text-blue-600 hover:underline">Back to Pricing</a>
+        </div>
+    </header>
+    <main class="max-w-4xl mx-auto px-4 py-12">
+        <article>
+            <h1 class="text-3xl font-bold mb-4">How to Run DeepSeek Harness with GoMixAPI: Step-by-Step Guide</h1>
+            <p class="text-gray-500 mb-8">Published: 2026-08-17 · Category: Tutorial · Updated: 2026-08-17</p>
+
+            <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
+                <p class="text-blue-700"><strong>What you'll build:</strong> A working DeepSeek Harness Agent environment connected to 20+ Chinese LLMs (DeepSeek, Qwen, Dola, GLM, Hunyuan, Kimi) through one GoMixAPI key.</p>
+                <p class="text-blue-600 text-sm mt-1">Requirements: Node.js 22+ · GoMixAPI account · Basic terminal knowledge</p>
+            </div>
+
+            <h2 class="text-2xl font-bold mb-4">Step 1: Get Your GoMixAPI API Key</h2>
+            <div class="bg-white p-6 rounded-xl shadow mb-8">
+                <ol class="list-decimal list-inside text-gray-700 space-y-2">
+                    <li>Sign up at <a href="https://gomixapi.com" class="text-blue-600 hover:underline">gomixapi.com</a></li>
+                    <li>Verify your email and log in to the console</li>
+                    <li>Go to <strong>Token Management</strong> and create a new API key</li>
+                    <li>Copy your key — it starts with <code>sk-</code>. You'll get 5,000 free test tokens.</li>
+                </ol>
+            </div>
+
+            <h2 class="text-2xl font-bold mb-4">Step 2: Install DeepSeek Harness</h2>
+            <div class="bg-white p-6 rounded-xl shadow mb-8">
+                <p class="text-gray-600 mb-3">DSH requires Node.js 22 or higher. Check your version:</p>
+                <pre class="bg-gray-900 text-white p-4 rounded-lg font-mono text-sm mb-3 overflow-x-auto">node -v</pre>
+                <p class="text-gray-600 mb-3">If it's below 22, install Node 22 via nvm:</p>
+                <pre class="bg-gray-900 text-white p-4 rounded-lg font-mono text-sm mb-3 overflow-x-auto">curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.3/install.sh | bash
+source ~/.bashrc
+nvm install 22
+nvm use 22</pre>
+                <p class="text-gray-600 mb-3">Then install DSH:</p>
+                <pre class="bg-gray-900 text-white p-4 rounded-lg font-mono text-sm overflow-x-auto">npm install @deepseek-ai/dsh</pre>
+            </div>
+
+            <h2 class="text-2xl font-bold mb-4">Step 3: Import GoMixAPI Profile</h2>
+            <div class="bg-white p-6 rounded-xl shadow mb-8">
+                <p class="text-gray-600 mb-3">We published a ready-to-use profile on GitHub. Clone it and import:</p>
+                <pre class="bg-gray-900 text-white p-4 rounded-lg font-mono text-sm mb-3 overflow-x-auto">git clone https://github.com/GoMixApi/dsh-profile
+cd dsh-profile
+export GOMIXAPI_API_KEY="sk-your-key"
+npx @deepseek-ai/dsh web --profile gomixapi.profile.json</pre>
+                <p class="text-gray-600">DSH will start a local Web UI at <code>http://127.0.0.1:3080</code>. Open it in your browser.</p>
+            </div>
+
+            <h2 class="text-2xl font-bold mb-4">Step 4: Verify the Connection</h2>
+            <div class="bg-white p-6 rounded-xl shadow mb-8">
+                <p class="text-gray-600 mb-3">In the DSH Web UI:</p>
+                <ol class="list-decimal list-inside text-gray-700 space-y-2">
+                    <li>Open model selector</li>
+                    <li>Choose provider <strong>GoMixAPI</strong></li>
+                    <li>Pick any model, e.g. <code>deepseek-v4-flash-202605</code></li>
+                    <li>Type "Say hello" in the input box</li>
+                    <li>You should see a response within seconds</li>
+                </ol>
+            </div>
+
+            <h2 class="text-2xl font-bold mb-4">Step 5: Switch Between 20 Models</h2>
+            <div class="bg-white p-6 rounded-xl shadow mb-8">
+                <p class="text-gray-600 mb-3">All 20 models are available through the same key. Simply switch the model in the selector. No code changes needed.</p>
+                <p class="text-gray-600">Popular choices:</p>
+                <ul class="list-disc list-inside text-gray-700 space-y-1">
+                    <li><code>deepseek-v4-flash-202605</code> — fastest, cost-effective</li>
+                    <li><code>dola-Seed-2.0-pro</code> — multimodal Agent, audio</li>
+                    <li><code>kimi-k3</code> — deep reasoning, 1M context</li>
+                    <li><code>qwen3.7-plus</code> — enterprise production</li>
+                </ul>
+            </div>
+
+            <h2 class="text-2xl font-bold mb-4">Step 6: Run Your First Agent Task</h2>
+            <div class="bg-white p-6 rounded-xl shadow mb-8">
+                <p class="text-gray-600 mb-3">Try a simple coding task in DSH:</p>
+                <pre class="bg-gray-900 text-white p-4 rounded-lg font-mono text-sm mb-3 overflow-x-auto">Write a Python function to check if a string is a palindrome.</pre>
+                <p class="text-gray-600">DSH will execute the task using your selected model. You can see the full trajectory — every tool call, every response — in the trajectory view.</p>
+            </div>
+
+            <h2 class="text-2xl font-bold mb-4">Pricing Reference</h2>
+            <div class="bg-white rounded-xl shadow-md overflow-x-auto mb-8">
+                <table class="w-full text-sm">
+                    <thead><tr class="bg-gray-100 text-left"><th class="p-3">Model ID</th><th class="p-3">Input $/1M</th><th class="p-3">Output $/1M</th></tr></thead>
+                    <tbody>
+<tr class="border-t"><td class="p-3 font-mono text-xs">deepseek-v4-flash-202605</td><td class="p-3">0.1</td><td class="p-3">0.45</td></tr>
+<tr class="border-t"><td class="p-3 font-mono text-xs">deepseek-v4-pro-202606</td><td class="p-3">0.4</td><td class="p-3">2.3</td></tr>
+<tr class="border-t"><td class="p-3 font-mono text-xs">glm-5.1</td><td class="p-3">1.8</td><td class="p-3">9.9</td></tr>
+<tr class="border-t"><td class="p-3 font-mono text-xs">glm-5.2</td><td class="p-3">1.55</td><td class="p-3">8.6</td></tr>
+<tr class="border-t"><td class="p-3 font-mono text-xs">glm-5v-turbo</td><td class="p-3">1.65</td><td class="p-3">8.95</td></tr>
+<tr class="border-t"><td class="p-3 font-mono text-xs">glm-5-turbo</td><td class="p-3">1.65</td><td class="p-3">8.95</td></tr>
+<tr class="border-t"><td class="p-3 font-mono text-xs">hy-mt2-plus</td><td class="p-3">0.15</td><td class="p-3">0.9</td></tr>
+<tr class="border-t"><td class="p-3 font-mono text-xs">dola-Seed-2.0-mini</td><td class="p-3">0.15</td><td class="p-3">0.6</td></tr>
+<tr class="border-t"><td class="p-3 font-mono text-xs">dola-Seed-2.0-lite</td><td class="p-3">0.5</td><td class="p-3">3.0</td></tr>
+<tr class="border-t"><td class="p-3 font-mono text-xs">dola-Seed-2.0-pro</td><td class="p-3">1.1</td><td class="p-3">6.6</td></tr>
+<tr class="border-t"><td class="p-3 font-mono text-xs">qwen3.5-flash</td><td class="p-3">0.15</td><td class="p-3">0.6</td></tr>
+<tr class="border-t"><td class="p-3 font-mono text-xs">qwq-plus</td><td class="p-3">1.1</td><td class="p-3">6.05</td></tr>
+<tr class="border-t"><td class="p-3 font-mono text-xs">qwen3.6-flash</td><td class="p-3">0.5</td><td class="p-3">2.8</td></tr>
+<tr class="border-t"><td class="p-3 font-mono text-xs">qwen3.5-plus</td><td class="p-3">1.05</td><td class="p-3">5.75</td></tr>
+<tr class="border-t"><td class="p-3 font-mono text-xs">qwen3.7-plus</td><td class="p-3">0.7</td><td class="p-3">3.9</td></tr>
+<tr class="border-t"><td class="p-3 font-mono text-xs">qwen3.7-plus-1m</td><td class="p-3">1.85</td><td class="p-3">10.2</td></tr>
+<tr class="border-t"><td class="p-3 font-mono text-xs">qwen3-vl-plus</td><td class="p-3">0.5</td><td class="p-3">2.5</td></tr>
+<tr class="border-t"><td class="p-3 font-mono text-xs">dola-Seed-2.1-turbo</td><td class="p-3">0.7</td><td class="p-3">3.5</td></tr>
+<tr class="border-t"><td class="p-3 font-mono text-xs">hy3</td><td class="p-3">0.4</td><td class="p-3">1.6</td></tr>
+<tr class="border-t"><td class="p-3 font-mono text-xs">kimi-k3</td><td class="p-3">5.5</td><td class="p-3">31.0</td></tr>
+                    </tbody>
+                </table>
+                <p class="text-xs text-gray-500 p-3">Full pricing and live calculator on the <a href="/pricing" class="text-blue-600 hover:underline">Pricing page</a>.</p>
+            </div>
+
+            <h2 class="text-2xl font-bold mb-4">Troubleshooting</h2>
+            <div class="space-y-4 mb-8">
+                <div class="bg-white p-6 rounded-xl shadow">
+                    <h3 class="font-bold text-lg mb-2">MISSING_CREDENTIAL</h3>
+                    <p class="text-gray-600">Means the API key wasn't loaded. Make sure you ran <code>export GOMIXAPI_API_KEY="sk-your-key"</code> before starting DSH.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow">
+                    <h3 class="font-bold text-lg mb-2">UNKNOWN_MODEL</h3>
+                    <p class="text-gray-600">The model ID doesn't match our catalog. Check the exact ID in the compatibility matrix above.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow">
+                    <h3 class="font-bold text-lg mb-2">Node version errors</h3>
+                    <p class="text-gray-600">If you see errors about <code>createZstdDecompress</code> or <code>Promise.withResolvers</code>, your Node.js is below 22. Upgrade via nvm as shown in Step 2.</p>
+                </div>
+            </div>
+
+            <div class="bg-green-50 border border-green-200 rounded-xl p-6 mb-8 text-center">
+                <p class="text-green-700 font-bold text-lg mb-2">Start building Agents on 20 Chinese LLMs</p>
+                <p class="text-green-600 mb-4">Get 5,000 free tokens. No credit card required. One key for all models.</p>
+                <a href="https://console.gomixapi.com" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700">Sign Up Free</a>
+                <p class="text-xs text-gray-500 mt-2">Serving: Singapore · Hong Kong · Indonesia · Vietnam · Thailand · Malaysia · Philippines</p>
+            </div>
+
+            <div class="text-sm text-gray-500 border-t pt-6">
+                <p><strong>Related:</strong> <a href="/blog/2026-08-17-deepseek-harness-gomixapi-compatibility" class="text-blue-600 hover:underline">Compatibility Matrix</a> · <a href="https://github.com/GoMixApi/dsh-profile" class="text-blue-600 hover:underline">GitHub Profile</a></p>
+                <p class="mt-2"><strong>Disclosure:</strong> DeepSeek Harness is an MIT-licensed open-source project. GoMixAPI is an independent API gateway. DSH is v0.1 Developer Preview — interfaces may change.</p>
+            </div>
+        </article>
+    </main>
+</body>
+</html>
