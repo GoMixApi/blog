@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepSeek Harness Team Server: Share One AI Agent with GoMixAPI</title>
+    <meta name="description" content="Learn how to deploy DeepSeek Harness as a team-shared AI server. One AI agent for your whole team, unified file management, remote access, and GoMixAPI model layer for compliance and low latency.">
+    <link rel="canonical" href="https://gomixapi.com/blog/2026-08-19-dsh-team-server">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-white shadow-sm border-b">
+        <div class="max-w-4xl mx-auto px-6 py-5 flex items-center justify-between">
+            <a href="/" class="text-2xl font-extrabold text-blue-600">GoMixAPI</a>
+            <a href="/pricing" class="text-sm text-blue-600 hover:underline">Back to Pricing</a>
+        </div>
+    </header>
+    <main class="max-w-4xl mx-auto px-4 py-12">
+        <article>
+            <h1 class="text-3xl font-bold mb-4">DeepSeek Harness Team Server: Share One AI Agent Across Your Whole Team</h1>
+            <p class="text-gray-500 mb-8">Published: 2026-08-19 · Category: Tutorial · Updated: 2026-08-19</p>
+
+            <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
+                <p class="text-blue-700"><strong>The problem:</strong> Every team member uses their own AI agent, with separate project files, knowledge bases, and accumulated experience. You keep reinventing the wheel.</p>
+                <p class="text-blue-600 text-sm mt-1"><strong>The solution:</strong> Deploy DeepSeek Harness on one machine as a shared team server. Combined with GoMixAPI's model layer, your whole team can use the same AI agent, same files, and same model access.</p>
+            </div>
+
+            <h2 class="text-2xl font-bold mb-4">Why Team-Shared AI Agents Matter</h2>
+            <div class="bg-white p-6 rounded-xl shadow mb-8">
+                <p class="text-gray-600 mb-3">When each developer runs their own AI coding agent (like Codex or Claude Code), several problems emerge:</p>
+                <ul class="list-disc list-inside text-gray-600 space-y-2">
+                    <li>Each AI has its own isolated context, project files, and knowledge base</li>
+                    <li>Automation workflows are duplicated — you build one, I build a similar one</li>
+                    <li>Experience and learnings are not shared across the team</li>
+                    <li>File paths and names are hard to remember when using mobile AI clients</li>
+                </ul>
+            </div>
+
+            <h2 class="text-2xl font-bold mb-4">What DeepSeek Harness Enables</h2>
+            <div class="space-y-4 mb-8">
+                <div class="bg-white p-6 rounded-xl shadow">
+                    <h3 class="font-bold text-lg mb-2">1. A Web-Based Control Panel → Remote Server</h3>
+                    <p class="text-gray-600">DSH's web UI can be bound to a domain, exposed to the public internet (with authentication), and even packaged as an app. Integrate with Feishu or WeCom, and you can access the same AI agent from any device — as long as the host machine stays on.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow">
+                    <h3 class="font-bold text-lg mb-2">2. Multi-Account Management</h3>
+                    <p class="text-gray-600">Add multi-user support so several people can use the same DSH instance simultaneously. This becomes the foundation for a team-specific AI SaaS or internal ERP system.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow">
+                    <h3 class="font-bold text-lg mb-2">3. Unified File Management & Mobile Reference</h3>
+                    <p class="text-gray-600">A file manager plugin lets you upload, view, and edit files directly. In the chat input, you can reference a file without remembering its exact path — the AI agent handles it.</p>
+                </div>
+                <div class="bg-white p-6 rounded-xl shadow">
+                    <h3 class="font-bold text-lg mb-2">4. Quick Command Panels</h3>
+                    <p class="text-gray-600">Save frequently used prompts in a panel, one-click copy to the chat box. Mobile AI agent usage finally becomes practical.</p>
+                </div>
+            </div>
+
+            <h2 class="text-2xl font-bold mb-4">Why Pair DSH with GoMixAPI for Team Use</h2>
+            <div class="bg-white p-6 rounded-xl shadow mb-8">
+                <p class="text-gray-600 mb-3">When your whole team shares one DSH server, you need a model layer that is:</p>
+                <ul class="list-disc list-inside text-gray-600 space-y-2">
+                    <li><strong>Unified:</strong> One API key, one bill for 20+ Chinese models — no per-team-member accounts.</li>
+                    <li><strong>Low latency:</strong> Singapore-native nodes with 45-70ms TTFB, critical for real-time collaborative AI tasks.</li>
+                    <li><strong>Compliant:</strong> Hong Kong-licensed entity, zero data retention, signable DPA/SCC — essential for enterprise team deployment.</li>
+                </ul>
+                <p class="text-gray-600 mt-3">Connect DSH to GoMixAPI in minutes using our <a href="/blog/2026-08-17-how-to-run-dsh-with-gomixapi" class="text-blue-600 hover:underline">step-by-step guide</a> and <a href="https://github.com/GoMixApi/dsh-profile" class="text-blue-600 hover:underline">one-click GitHub profile</a>.</p>
+            </div>
+
+            <h2 class="text-2xl font-bold mb-4">Getting Started</h2>
+            <div class="bg-white p-6 rounded-xl shadow mb-8">
+                <ol class="list-decimal list-inside text-gray-700 space-y-2">
+                    <li>Sign up at <a href="https://gomixapi.com" class="text-blue-600 hover:underline">gomixapi.com</a> and get your API key</li>
+                    <li>Install DSH (Node.js 22+): <code>npm install @deepseek-ai/dsh</code></li>
+                    <li>Import our profile: <code>npx @deepseek-ai/dsh web --profile gomixapi.profile.json</code></li>
+                    <li>Deploy the web UI on a team-accessible machine, add authentication, and share the URL</li>
+                </ol>
+            </div>
+
+            <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-6 mb-8">
+                <p class="text-yellow-700"><strong>Note:</strong> DSH is v0.1 Developer Preview. It's highly extensible ("everything is a plugin"), but currently requires technical setup. For non-technical users, Codex or similar managed tools may be simpler. For teams wanting full control and a shared AI infrastructure, DSH + GoMixAPI is a powerful combination.</p>
+            </div>
+
+            <div class="bg-green-50 border border-green-200 rounded-xl p-6 mb-8 text-center">
+                <p class="text-green-700 font-bold text-lg mb-2">Ready to build your team's shared AI server?</p>
+                <p class="text-green-600 mb-4">Get 5,000 free tokens. No credit card required. One key for 20+ Chinese models.</p>
+                <a href="https://console.gomixapi.com" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700">Start Free</a>
+                <p class="text-xs text-gray-500 mt-2">Serving: Singapore · Hong Kong · Indonesia · Vietnam · Thailand · Malaysia · Philippines</p>
+            </div>
+
+            <div class="text-sm text-gray-500 border-t pt-6">
+                <p><strong>Related:</strong> <a href="/blog/2026-08-17-how-to-run-dsh-with-gomixapi" class="text-blue-600 hover:underline">DSH Step-by-Step Guide</a> · <a href="/blog/2026-08-17-deepseek-harness-gomixapi-compatibility" class="text-blue-600 hover:underline">Compatibility Matrix</a></p>
+                <p class="mt-2"><strong>Disclosure:</strong> DeepSeek Harness is an MIT-licensed open-source project. GoMixAPI is an independent API gateway. DSH is v0.1 Developer Preview — interfaces may change.</p>
+            </div>
+        </article>
+    </main>
+</body>
+</html>
