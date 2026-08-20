@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepSeek Harness Plugin Ecosystem: Why "Everything is a Plugin" Changes Agent Development – GoMixAPI</title>
+    <meta name="description" content="Explore how DeepSeek Harness's Cordis plugin architecture enables composable AI agents. Pair it with GoMixAPI's unified model layer to access 20+ Chinese models with one API key.">
+    <link rel="canonical" href="https://gomixapi.com/blog/2026-08-20-dsh-plugin-ecosystem-gomixapi">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50">
+    <header class="bg-white shadow-sm border-b">
+        <div class="max-w-4xl mx-auto px-6 py-5 flex items-center justify-between">
+            <a href="/" class="text-2xl font-extrabold text-blue-600">GoMixAPI</a>
+            <a href="/pricing" class="text-sm text-blue-600 hover:underline">Back to Pricing</a>
+        </div>
+    </header>
+    <main class="max-w-4xl mx-auto px-4 py-12">
+        <article>
+            <h1 class="text-3xl font-bold mb-4">DeepSeek Harness Plugin Ecosystem: Why "Everything is a Plugin" Changes Agent Development</h1>
+            <p class="text-gray-500 mb-8">Published: 2026-08-20 · Category: Integration Guide · Updated: 2026-08-20</p>
+
+            <div class="bg-blue-50 border border-blue-200 rounded-xl p-6 mb-8">
+                <p class="text-blue-700"><strong>Key insight:</strong> DeepSeek Harness (DSH) is not just another agent product. It's a plugin-based agent operating system. And when you combine it with GoMixAPI's unified model layer, you get a powerful, low-friction stack for building custom AI agents with access to 20+ Chinese frontier models.</p>
+            </div>
+
+            <h2 class="text-2xl font-bold mb-4">What Makes DSH Different: The Cordis Kernel</h2>
+            <div class="bg-white p-6 rounded-xl shadow mb-8">
+                <p class="text-gray-600 mb-3">DSH is built on <strong>Cordis</strong>, a microkernel plugin system. In DSH, everything is a plugin: model adapters, tools, session storage, agent loops, even UI components. This means you can assemble an agent like building blocks — swap a model, add a tool, or replace a storage backend without touching core code.</p>
+                <p class="text-gray-600">The official design philosophy is simple: <strong>"Everything is a Plugin."</strong> This gives developers two powerful capabilities:</p>
+                <ul class="list-disc list-inside text-gray-600 space-y-2 mt-3">
+                    <li><strong>Temporal composability:</strong> Uninstall a plugin and its effects are cleanly removed, restoring the project to its previous state.</li>
+                    <li><strong>Spatial composability:</strong> When a dependency changes, Cordis automatically re-resolves relationships between plugins, pausing or resuming them as needed.</li>
+                </ul>
+            </div>
+
+            <h2 class="text-2xl font-bold mb-4">Plugin Ecosystem: Reuse Community Knowledge</h2>
+            <div class="bg-white p-6 rounded-xl shadow mb-8">
+                <p class="text-gray-600 mb-3">The real power of DSH is its growing open-source plugin community. Instead of coding every capability yourself, you can install plugins from GitHub and combine them into your agent. For example:</p>
+                <ul class="list-disc list-inside text-gray-600 space-y-2">
+                    <li><strong>Vision plugins</strong> for image understanding when your base model is text-only</li>
+                    <li><strong>Accounting plugins</strong> for extracting and logging expense data</li>
+                    <li><strong>Course generation plugins</strong> that create interactive learning experiences</li>
+                </ul>
+                <p class="text-gray-600 mt-3">This means individual developers can share new capabilities with the entire community, accelerating innovation far beyond what any single company could achieve.</p>
+            </div>
+
+            <h2 class="text-2xl font-bold mb-4">Where GoMixAPI Fits: The Model Layer</h2>
+            <div class="bg-white p-6 rounded-xl shadow mb-8">
+                <p class="text-gray-600 mb-3">When you build agents with DSH, you need a reliable model provider. Here's where GoMixAPI becomes the perfect companion:</p>
+                <ul class="list-disc list-inside text-gray-600 space-y-2">
+                    <li><strong>One key, 20+ models:</strong> No need to sign up for DeepSeek, Qwen, Dola, GLM, Hunyuan, Kimi individually. Just one GoMixAPI key gives you access to all of them.</li>
+                    <li><strong>Multimodal-ready:</strong> DSH plugins often require vision or audio capabilities. GoMixAPI includes Dola multimodal models, so you don't need separate API keys for image or audio tasks.</li>
+                    <li><strong>Future video integration:</strong> When ByteDance Dreamina video model launches on GoMixAPI, you'll be able to add video generation to your agents with the same unified billing.</li>
+                    <li><strong>Singapore low latency:</strong> 45-70ms TTFB in Singapore, crucial for interactive agent workflows.</li>
+                    <li><strong>HK compliance:</strong> Zero data retention, DPA/SCC available — important for enterprise agent deployments.</li>
+                </ul>
+                <p class="text-gray-600 mt-3">Connect DSH to GoMixAPI in minutes using our <a href="/blog/2026-08-17-how-to-run-dsh-with-gomixapi" class="text-blue-600 hover:underline">step-by-step guide</a> and <a href="https://github.com/GoMixApi/dsh-profile" class="text-blue-600 hover:underline">one-click GitHub profile</a>.</p>
+            </div>
+
+            <h2 class="text-2xl font-bold mb-4">Building Your First Plugin-Enhanced Agent</h2>
+            <div class="bg-white p-6 rounded-xl shadow mb-8">
+                <ol class="list-decimal list-inside text-gray-700 space-y-2">
+                    <li>Sign up at <a href="https://gomixapi.com" class="text-blue-600 hover:underline">gomixapi.com</a> and get your API key</li>
+                    <li>Install DSH (Node.js 22+): <code>npm install @deepseek-ai/dsh</code></li>
+                    <li>Import our profile: <code>npx @deepseek-ai/dsh web --profile gomixapi.profile.json</code></li>
+                    <li>Explore community plugins on GitHub and install what you need</li>
+                    <li>Run your agent with GoMixAPI models — switch between 20+ Chinese models without changing code</li>
+                </ol>
+            </div>
+
+            <div class="bg-yellow-50 border border-yellow-200 rounded-xl p-6 mb-8">
+                <p class="text-yellow-700"><strong>Note:</strong> DSH is v0.1 Developer Preview. It requires technical setup and is intended for developers comfortable with command-line tools. The plugin ecosystem is growing but not yet as mature as commercial agent products. For teams wanting full control and a shared AI infrastructure, DSH + GoMixAPI is a strong combination.</p>
+            </div>
+
+            <div class="bg-green-50 border border-green-200 rounded-xl p-6 mb-8 text-center">
+                <p class="text-green-700 font-bold text-lg mb-2">Build custom agents with 20+ Chinese models</p>
+                <p class="text-green-600 mb-4">Get 5,000 free tokens. No credit card required. One key for all models.</p>
+                <a href="https://console.gomixapi.com" class="inline-block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700">Start Free</a>
+                <p class="text-xs text-gray-500 mt-2">Serving: Singapore · Hong Kong · Indonesia · Vietnam · Thailand · Malaysia · Philippines</p>
+            </div>
+
+            <div class="text-sm text-gray-500 border-t pt-6">
+                <p><strong>Related:</strong> <a href="/blog/2026-08-17-how-to-run-dsh-with-gomixapi" class="text-blue-600 hover:underline">DSH Step-by-Step Guide</a> · <a href="/blog/2026-08-17-deepseek-harness-gomixapi-compatibility" class="text-blue-600 hover:underline">Compatibility Matrix</a> · <a href="/blog/2026-08-19-dsh-team-server" class="text-blue-600 hover:underline">DSH Team Server</a></p>
+                <p class="mt-2"><strong>Disclosure:</strong> DeepSeek Harness is an MIT-licensed open-source project. GoMixAPI is an independent API gateway. DSH is v0.1 Developer Preview — interfaces may change.</p>
+            </div>
+        </article>
+    </main>
+</body>
+</html>
